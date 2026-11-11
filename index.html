@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Celebrate the wedding of Rickyboy Fabriga and Lorrie Jane A. Butil. Find the date, browse our photos, and join us online."
+    />
+    <meta name="theme-color" content="#f8f6f1" />
+    <title>Rickyboy &amp; Lorrie — We're getting married</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f8f6f1;
+        --ink: #30332c;
+        --muted: #73756d;
+        --olive: #59604c;
+        --rose: #bc826e;
+        --line: #dedbd2;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5.5rem;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      .eyebrow {
+        color: var(--olive);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .site-header {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.65rem 7.2%;
+      }
+
+      .wordmark {
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        letter-spacing: 0.015em;
+      }
+
+      .wordmark span {
+        color: var(--rose);
+        font-style: italic;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(1.3rem, 3vw, 2.8rem);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        transition: color 180ms ease;
+      }
+
+      .nav-links a:not(.nav-cta):hover {
+        color: var(--rose);
+      }
+
+      .nav-cta,
+      .button {
+        display: inline-flex;
+        min-height: 2.8rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--olive);
+        padding: 0.75rem 1.2rem;
+        color: var(--olive);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        transition:
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .nav-cta:hover,
+      .button:hover {
+        background: var(--olive);
+        color: white;
+      }
+
+      .hero {
+        display: grid;
+        min-height: min(810px, 100svh);
+        grid-template-columns: 0.94fr 1.06fr;
+        align-items: center;
+        padding: 7rem 7.2% 4rem;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        padding: 2rem 0;
+      }
+
+      .hero-copy .eyebrow {
+        margin-bottom: 1.55rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .hero h1 {
+        margin-bottom: 1.15rem;
+        font-family: var(--serif);
+        font-size: clamp(4.3rem, 8vw, 8rem);
+        font-weight: 400;
+        letter-spacing: -0.07em;
+        line-height: 0.94;
+      }
+
+      .hero h1 span {
+        display: block;
+        margin: 0.1em 0 0 0.5em;
+        color: var(--rose);
+        font-size: 0.62em;
+        font-style: italic;
+        letter-spacing: -0.035em;
+      }
+
+      .hero-date {
+        margin: 2.15rem 0 1.5rem;
+        color: var(--muted);
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .hero-note {
+        max-width: 22rem;
+        color: var(--muted);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        line-height: 1.65;
+      }
+
+      .hero .button {
+        margin-top: 0.9rem;
+        background: var(--olive);
+        color: white;
+      }
+
+      .hero .button:hover {
+        background: #414638;
+      }
+
+      .hero-photo-wrap {
+        position: relative;
+        height: min(70vh, 640px);
+        min-height: 430px;
+        margin-left: -1.5rem;
+      }
+
+      .hero-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 45%;
+      }
+
+      .photo-caption {
+        position: absolute;
+        right: -1.4rem;
+        bottom: 1.9rem;
+        background: var(--paper);
+        padding: 0.85rem 1.05rem;
+        color: var(--muted);
+        font-family: var(--serif);
+        font-size: 0.85rem;
+        font-style: italic;
+      }
+
+      .intro {
+        padding: 7rem 1.5rem 7.5rem;
+        background: #eeece4;
+        text-align: center;
+      }
+
+      .intro h2,
+      .section-heading h2 {
+        margin: 0.8rem 0 1rem;
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 1.08;
+      }
+
+      .intro h2 em {
+        color: var(--rose);
+        font-weight: 400;
+      }
+
+      .intro p {
+        max-width: 33rem;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 0.93rem;
+        line-height: 1.9;
+      }
+
+      .section {
+        padding: 7.5rem 7.2%;
+      }
+
+      .section-heading {
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2.8rem, 5vw, 4rem);
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-style: italic;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr 1fr;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .gallery-grid figure {
+        margin: 0;
+      }
+
+      .gallery-grid figure:nth-child(2) {
+        transform: translateY(2.5rem);
+      }
+
+      .gallery-grid img {
+        display: block;
+        width: 100%;
+        height: clamp(250px, 32vw, 430px);
+        object-fit: cover;
+      }
+
+      .gallery-grid figure:nth-child(2) img {
+        height: clamp(310px, 39vw, 510px);
+      }
+
+      .gallery-grid figcaption {
+        padding-top: 0.8rem;
+        color: var(--muted);
+        font-family: var(--serif);
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      .film-section {
+        padding: 7.5rem 7.2%;
+        background: #e9e7de;
+      }
+
+      .film-card {
+        position: relative;
+        display: grid;
+        min-height: 430px;
+        place-items: center;
+        overflow: hidden;
+        background: #555b4b;
+        color: white;
+        text-align: center;
+      }
+
+      .film-card::before {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(0deg, rgb(29 32 26 / 54%), rgb(29 32 26 / 12%)),
+          url("images/9.jpg")
+            center 48% / cover;
+        content: "";
+        transition: transform 500ms ease;
+      }
+
+      .film-card:hover::before {
+        transform: scale(1.025);
+      }
+
+      .film-content {
+        position: relative;
+        z-index: 1;
+        padding: 2rem;
+      }
+
+      .film-content .eyebrow {
+        color: #f4e3d6;
+      }
+
+      .film-content h2 {
+        margin: 0.9rem 0 1.5rem;
+        font-family: var(--serif);
+        font-size: clamp(2.6rem, 5vw, 4.4rem);
+        font-weight: 400;
+      }
+
+      .play-button {
+        display: inline-grid;
+        width: 4.4rem;
+        height: 4.4rem;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 80%);
+        border-radius: 50%;
+        background: rgb(255 255 255 / 12%);
+        color: white;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        transition:
+          background 180ms ease,
+          transform 180ms ease;
+      }
+
+      .play-button:hover {
+        transform: scale(1.06);
+        background: rgb(255 255 255 / 25%);
+      }
+
+      .play-button svg {
+        width: 1rem;
+        margin-left: 0.18rem;
+      }
+
+      .film-note {
+        margin: 1.15rem 0 0;
+        color: rgb(255 255 255 / 85%);
+        font-size: 0.78rem;
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .details-photo {
+        display: block;
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+      }
+
+      .details-copy {
+        max-width: 29rem;
+      }
+
+      .details-copy h2 {
+        margin: 0.8rem 0 1.3rem;
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 5vw, 4.3rem);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+
+      .details-copy > p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .event-date {
+        margin: 2rem 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 1.2rem 0;
+      }
+
+      .event-date strong {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        font-weight: 400;
+      }
+
+      .event-date span {
+        color: var(--muted);
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+      }
+
+      .zoom-button {
+        border-color: var(--olive);
+        background: var(--olive);
+        color: white;
+      }
+
+      .zoom-button:hover {
+        background: #414638;
+      }
+
+      .zoom-note {
+        margin: 0.8rem 0 0;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .footer {
+        padding: 3rem 1.5rem;
+        background: #e9e7de;
+        text-align: center;
+      }
+
+      .footer-mark {
+        margin: 0 0 0.55rem;
+        font-family: var(--serif);
+        font-size: 1.6rem;
+      }
+
+      .footer p:last-child {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .video-dialog {
+        width: min(900px, calc(100vw - 2rem));
+        max-width: none;
+        border: 0;
+        padding: 0;
+        background: #171815;
+      }
+
+      .video-dialog::backdrop {
+        background: rgb(24 25 22 / 82%);
+        backdrop-filter: blur(4px);
+      }
+
+      .video-dialog video {
+        display: block;
+        width: 100%;
+        max-height: 80vh;
+      }
+
+      .dialog-close {
+        position: absolute;
+        top: 0.7rem;
+        right: 0.7rem;
+        display: grid;
+        width: 2.5rem;
+        height: 2.5rem;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 65%);
+        border-radius: 50%;
+        background: rgb(0 0 0 / 40%);
+        color: white;
+        cursor: pointer;
+      }
+
+      @media (max-width: 760px) {
+        .site-header {
+          padding: 1.25rem 6%;
+        }
+
+        .nav-links {
+          gap: 1rem;
+          font-size: 0.63rem;
+        }
+
+        .nav-links a:nth-child(2),
+        .nav-links a:nth-child(3) {
+          display: none;
+        }
+
+        .nav-cta {
+          min-height: 2.45rem;
+          padding: 0.55rem 0.75rem;
+        }
+
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          padding: 7.5rem 6% 3rem;
+        }
+
+        .hero-copy {
+          padding: 1rem 0 2.5rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(4.8rem, 18vw, 7rem);
+        }
+
+        .hero-photo-wrap {
+          height: 62svh;
+          min-height: 360px;
+          margin: 0 0.7rem 0 0;
+        }
+
+        .intro {
+          padding: 5.5rem 1.5rem;
+        }
+
+        .section,
+        .film-section {
+          padding: 5.5rem 6%;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.8rem;
+        }
+
+        .gallery-grid figure:nth-child(2) {
+          transform: none;
+        }
+
+        .gallery-grid img,
+        .gallery-grid figure:nth-child(2) img {
+          height: 62vw;
+          max-height: 390px;
+        }
+
+        .film-card {
+          min-height: 360px;
+        }
+
+        .details {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+
+        .details-photo {
+          height: min(110vw, 480px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Rickyboy Fabriga and Lorrie Jane A. Butil, home">R <span>&amp;</span> L</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#photos">Photos</a>
+        <a href="#film">Our film</a>
+        <a class="nav-cta" href="#celebrate">Wedding details</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Together with our families</p>
+          <h1 id="hero-title">Rickyboy <span>&amp; Lorrie Jane</span></h1>
+          <p class="hero-date">November 16, 2026 · Monday</p>
+          <p class="hero-note">Two hearts, one big adventure. We'd love for you to be part of it.</p>
+          <a class="button" href="#celebrate">Save the date</a>
+        </div>
+        <div class="hero-photo-wrap">
+          <img
+            class="hero-photo"
+            src="images/1.jpg"
+            alt="A couple sharing a joyful moment outdoors"
+            fetchpriority="high"
+          />
+          <span class="photo-caption">The beginning of forever</span>
+        </div>
+      </section>
+
+      <section class="intro" id="story" aria-labelledby="story-title">
+        <p class="eyebrow">A little about us</p>
+        <h2 id="story-title">The best things<br />happen <em>unexpectedly.</em></h2>
+        <p>
+          From a chance hello to a lifetime of little adventures, we've found our favorite place is
+          wherever we are together. Now, we're making it official—and celebrating with all our
+          favorite people.
+        </p>
+      </section>
+
+      <section class="section" id="photos" aria-labelledby="photos-title">
+        <div class="section-heading">
+          <p class="eyebrow">The two of us</p>
+          <h2 id="photos-title">Little moments, big love</h2>
+          <p>A few favorite frames from our story so far.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="images/5.jpg"
+              alt="Rickyboy and Lorrie sharing a playful moment together"
+              loading="lazy"
+            />
+            <figcaption>All smiles, always</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/6.jpg"
+              alt="Rickyboy and Lorrie sitting together on a tropical road"
+              loading="lazy"
+            />
+            <figcaption>Our kind of day</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/7.jpg"
+              alt="Rickyboy and Lorrie laughing together outdoors"
+              loading="lazy"
+            />
+            <figcaption>Just us two</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/2.jpg"
+              alt="Rickyboy and Lorrie sitting together beneath palm trees"
+              loading="lazy"
+            />
+            <figcaption>A quiet moment together</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/4.jpg"
+              alt="Lorrie smiling with her bouquet"
+              loading="lazy"
+            />
+            <figcaption>That just-married feeling</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="images/8.jpg"
+              alt="Rickyboy looking back with a smile"
+              loading="lazy"
+            />
+            <figcaption>Always looking your way</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="film-section" id="film" aria-labelledby="film-title">
+        <div class="section-heading">
+          <p class="eyebrow">Press play</p>
+          <h2 id="film-title">A little piece of us</h2>
+          <p>Our favorite moments, moving-picture style.</p>
+        </div>
+        <div class="film-card">
+          <div class="film-content">
+            <p class="eyebrow">A film for the days ahead</p>
+            <h2>Our story, in motion</h2>
+            <button class="play-button" id="play-film" type="button" aria-label="Play our film">
+              <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
+                <path d="M15 7.27a2 2 0 0 1 0 3.46l-11.98 7A2 2 0 0 1 0 16V2a2 2 0 0 1 3.02-1.73L15 7.27Z" />
+              </svg>
+            </button>
+            <p class="film-note">Sample preview — replace with your wedding film</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section details" id="celebrate" aria-labelledby="details-title">
+        <img
+          class="details-photo"
+          src="images/3.jpg"
+          alt="Rickyboy lifting Lorrie during a playful prenup moment"
+          loading="lazy"
+        />
+        <div class="details-copy">
+          <p class="eyebrow">The day we've been dreaming of</p>
+          <h2 id="details-title">Let's celebrate<br />together.</h2>
+          <p>
+            Whether you're right by our side or joining us from afar, it wouldn't be the same
+            without you. We can't wait to celebrate.
+          </p>
+          <div class="event-date">
+            <strong>Monday, November 16, 2026</strong>
+            <span>2:00 PM · Local time</span>
+          </div>
+          <a
+            class="button zoom-button"
+            href="https://l.facebook.com/l.php?u=https%3A%2F%2Fus05web.zoom.us%2Fj%2F4468275883%3Fpwd%3DeejE4Znd1fZYxadaiEmqnpWp5swesI.1%26omn%3D82035359456%26fbclid%3DIwZXh0bgNhZW0CMTAAcGRvZgVicmlkETBUdlBMRldTWkF3QzJFTzNrc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABH47POb7nC1_oxDWBXqRqUyb-UbQi_7WUtIfw1Y0sh5k6nHTyG8awB80XdaTJ_aem_YAwaj1KU9ZH_L2klKlKK2A&amp;h=AUBoUy96hE58x4NekhS4NjuJXTGjbli-1_C0Vd6tKJsUZnMgs07iV7f1as3gUDnPNTfk9-e5JvvochmPuRK3DrB4SUqWL25PR-UkdtotqglMlwHrjQgilXIVwIXhVus"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Join us on Zoom</a>
+          <p class="zoom-note">Our private Zoom meeting link will be shared with guests soon.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-mark">Rickyboy <span style="color: var(--rose); font-style: italic">&amp;</span> Lorrie Jane</p>
+      <p>November 16, 2026 · The start of forever</p>
+    </footer>
+
+    <dialog class="video-dialog" id="film-dialog" aria-label="Wedding film preview">
+      <button class="dialog-close" id="close-film" type="button" aria-label="Close video">×</button>
+      <video id="film-video" controls playsinline preload="none" poster="images/9.jpg">
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video element.
+      </video>
+    </dialog>
+
+    <script>
+      const filmDialog = document.querySelector("#film-dialog");
+      const filmVideo = document.querySelector("#film-video");
+      const playFilm = document.querySelector("#play-film");
+      const closeFilm = document.querySelector("#close-film");
+
+      playFilm.addEventListener("click", () => {
+        filmDialog.showModal();
+        filmVideo.play().catch((error) => {
+          if (error.name !== "NotAllowedError") {
+            console.error("Could not play the wedding film.", error);
+          }
+        });
+      });
+
+      function stopFilm() {
+        filmVideo.pause();
+        filmVideo.currentTime = 0;
+      }
+
+      closeFilm.addEventListener("click", () => {
+        filmDialog.close();
+        stopFilm();
+      });
+
+      filmDialog.addEventListener("click", (event) => {
+        if (event.target === filmDialog) {
+          filmDialog.close();
+          stopFilm();
+        }
+      });
+
+      filmDialog.addEventListener("close", stopFilm);
+    </script>
+  </body>
+</html>
