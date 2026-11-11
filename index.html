@@ -574,10 +574,11 @@
         backdrop-filter: blur(4px);
       }
 
-      .video-dialog video {
+      .video-dialog iframe {
         display: block;
         width: 100%;
-        max-height: calc(100svh - 2rem);
+        aspect-ratio: 16 / 9;
+        border: 0;
         background: #171815;
       }
 
@@ -878,7 +879,7 @@
               alt="Rickyboy and Lorrie together beneath the forest canopy"
               loading="lazy"
             />
-            <figcaption>Small moments, big memories</figcaption>
+           <figcaption>Ready for the ride</figcaption>
           </figure>
           <figure>
             <img
@@ -886,7 +887,16 @@
               alt="Rickyboy and Lorrie posing together on a scooter"
               loading="lazy"
             />
-            <figcaption>Ready for the ride</figcaption>
+           
+              <figcaption>Small moments, big memories</figcaption>
+          </figure>
+           <figure>
+            <img
+              src="images/21.jpg"
+              alt="Rickyboy and Lorrie posing together"
+              loading="lazy"
+            />
+            <figcaption>Beautiful Moments, Good Vibes</figcaption>
           </figure>
         </div>
       </section>
@@ -955,17 +965,22 @@
 
     <dialog class="video-dialog" id="film-dialog" aria-label="Wedding film">
       <button class="dialog-close" id="close-film" type="button" aria-label="Close video">×</button>
-      <video id="film-video" controls playsinline preload="none" poster="images/9.jpg">
-        <source src="videos/prenup.mp4" type="video/mp4" />
-        Your browser does not support MP4 video playback.
-      </video>
+      <iframe
+        id="film-frame"
+        data-src="https://www.youtube.com/embed/0HXuimsCVF0?autoplay=1&amp;rel=0"
+        title="Rickyboy and Lorrie's prenup video"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </dialog>
 
     <script>
       const filmDialog = document.querySelector("#film-dialog");
       const playFilm = document.querySelector("#play-film");
       const closeFilm = document.querySelector("#close-film");
-      const filmVideo = document.querySelector("#film-video");
+      const filmFrame = document.querySelector("#film-frame");
       const photoDialog = document.querySelector("#photo-dialog");
       const fullPhoto = document.querySelector("#full-photo");
       const photoCaption = document.querySelector("#photo-caption");
@@ -1009,17 +1024,12 @@
       });
 
       playFilm.addEventListener("click", () => {
+        filmFrame.src = filmFrame.dataset.src;
         filmDialog.showModal();
-        filmVideo.play().catch((error) => {
-          if (error.name !== "NotAllowedError") {
-            console.error("Could not play the wedding film.", error);
-          }
-        });
       });
 
       function stopFilm() {
-        filmVideo.pause();
-        filmVideo.currentTime = 0;
+        filmFrame.removeAttribute("src");
       }
 
       closeFilm.addEventListener("click", () => {
